@@ -6,8 +6,8 @@ import {userService} from "./services/user.servise";
 import Users from "./components/Users";
 
 const App = () => {
-  const [users, setUsers] = useState();
-  const [filterusers, setFilterUsers] = useState();
+  const [users, setUsers] = useState([]);
+  const [filterusers, setFilterUsers] = useState([]);
 
 
   useEffect(() => {
@@ -16,6 +16,7 @@ const App = () => {
       setFilterUsers([...value])
     })
   }, [])
+
 
   const getFilter = (data) => {
     let filterarr = [...users]
