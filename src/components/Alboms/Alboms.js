@@ -1,26 +1,34 @@
 
-import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-
-import Albom from "./Albom";
+import React, {useEffect, useState} from 'react';
+import {Link, Outlet, useParams} from "react-router-dom";
 import {AlbomServise} from "../../services/albom.servise";
 
+
 const Alboms = () => {
-    const {id} = useParams();
-    const [albums, setAlbums] = useState([])
+    let {id} = useParams();
+    const [albums, setAlbums] = useState(null);
+
     useEffect(() => {
-        AlbomServise.getById(id).then((value => setAlbums([...value])))
+        AlbomServise.getByalbumsid(id).then(value => setAlbums(value))
     }, [id])
+    console.log(albums)
     return (
         <div>
             <div>
-                {albums.map(album => <Albom key={album.id}
-                                             post={album}/>)}
+                {
+                    albums &&
+                    (<div>
+                        <div>{albums.id}</div>
+                        <div>{albums.title}</div>
+                        <Link to={`${id}/photos`}>
+                            <button>photos</button>
+                        </Link>
+                    </div>)
+                }
             </div>
+            <Outlet/>
         </div>
-    )
-}
-
-
+    );
+};
 
 export default Alboms;

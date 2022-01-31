@@ -11,6 +11,7 @@ import Comments from "./components/Comments/Comments";
 import UserDateils from "./components/Users/UserDateils";
 import PostsUser from "./components/Users/UserPosts";
 import Alboms from "./components/Alboms/Alboms";
+import Photos from "./components/Alboms/UserAlbumsPhotos";
 
 function App() {
     return (
@@ -22,7 +23,9 @@ function App() {
                     <Route path={'users'} element={<UsersPage/>}>
                         <Route path={':id'} element={<UserDateils/>}>
                             <Route path={'posts'} element={<PostsUser/>}/>
-                            <Route path={'albums'} element={<Alboms/>}/>
+                        </Route>
+                        <Route path={':id/albums'} element={<Alboms/>}>
+                            <Route path={':id/photos'} element={<Photos/>}/>
                         </Route>
                     </Route>
                     <Route path={'posts'} element={<PostPage/>}>
