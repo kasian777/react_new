@@ -1,12 +1,43 @@
+import {Routes, Route, Link} from "react-router-dom";
 
-import './App.css';
+import HomePage from "./pages/HomePage/HomePage";
+import UsersPage from "./pages/UsersPage/UsersPage";
+import PostPage from "./pages/PostPage/PostPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import NotFoundPage from "./pages/NotFoudPage/NotFoundPage";
+import Layout from "./components/Layout/Layout";
+import SingelPostPaage from "./pages/SingelPostPage/SingelPostPaage";
+import Comments from "./components/Comments/Comments";
+import UserDateils from "./components/Users/UserDateils";
+import PostsUser from "./components/Users/UserPosts";
+import Alboms from "./components/Alboms/Alboms";
 
 function App() {
-  return (
-    <div>
-     <div>dgddhcvdhhd</div>
-    </div>
-  );
+    return (
+        <div>
+
+            <Routes>
+                <Route path={'/'} element={<Layout/>}>
+                    <Route index element={<HomePage/>}/>
+                    <Route path={'users'} element={<UsersPage/>}>
+                        <Route path={':id'} element={<UserDateils/>}>
+                            <Route path={'posts'} element={<PostsUser/>}/>
+                            <Route path={'albums'} element={<Alboms/>}/>
+                        </Route>
+                    </Route>
+                    <Route path={'posts'} element={<PostPage/>}>
+                        <Route path={':id'} element={<SingelPostPaage/>}>
+                            <Route path={'comments'} element={<Comments/>}/>
+                        </Route>
+                    </Route>
+                    <Route path={'about'} element={<AboutPage/>}/>
+                    <Route path={'*'} element={<NotFoundPage/>}/>
+                </Route>
+
+            </Routes>
+        </div>
+    )
+        ;
 }
 
 export default App;
