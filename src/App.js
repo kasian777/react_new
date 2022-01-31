@@ -33,7 +33,6 @@ function App() {
                             <Route path={'comments'} element={<Comments/>}/>
                         </Route>
                     </Route>
-                    <Route path={'about'} element={<AboutPage/>}/>
                     <Route path={'*'} element={<NotFoundPage/>}/>
                 </Route>
 
