@@ -1,10 +1,29 @@
+import {useReducer} from "react";
 
-import './App.css';
+const reduser = (state, action)=>{
+switch (action.tupe){
+    case 'inc':
+        return {...state, count1:state.count1+1}
+    case 'dec':
+        return {...state, count1:state.count1-1}
+    case 'reset':
+        return {...state, count1: action.payload}
+}
+    return state
+}
+
 
 function App() {
+    const [state, dispatch] = useReducer(reduser,{count1:0 })
+
+      
+
   return (
     <div>
-     <div>dgddhcvdhhd</div>
+       <div> {state.count1}</div>
+        <button onClick={()=>dispatch({tupe:'inc'})}>Inc</button>
+        <button onClick={()=>dispatch({tupe:'dec'})}>Dec</button>
+        <button onClick={()=>dispatch({tupe:'reset', payload:8})}>Reset</button>
     </div>
   );
 }
