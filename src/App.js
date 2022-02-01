@@ -3,7 +3,6 @@ import {Routes, Route, Link} from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import UsersPage from "./pages/UsersPage/UsersPage";
 import PostPage from "./pages/PostPage/PostPage";
-import AboutPage from "./pages/AboutPage/AboutPage";
 import NotFoundPage from "./pages/NotFoudPage/NotFoundPage";
 import Layout from "./components/Layout/Layout";
 import SingelPostPaage from "./pages/SingelPostPage/SingelPostPaage";
