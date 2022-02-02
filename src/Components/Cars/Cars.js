@@ -8,4 +8,5 @@ const Cars = ({cars, getCarId}) => {
     )
 }
 
+
 export default Cars;
