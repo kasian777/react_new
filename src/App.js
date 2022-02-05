@@ -10,8 +10,7 @@ switch (action.tupe){
         return {...state, count1:state.count1-1}
     case 'reset':
         return {...state, count1: action.payload}
-    defolt:
-    throw new Error('ERROR')
+
 }
     return state
 }
