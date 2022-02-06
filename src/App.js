@@ -1,10 +1,13 @@
 
 import './App.css';
+import {Cars, Form} from "./Components";
 
 function App() {
+
   return (
     <div>
-     <div>dgddhcvdhhd</div>
+        <Form />
+        <Cars />
     </div>
   );
 }
