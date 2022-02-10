@@ -1,0 +1,8 @@
+.Todo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.complite {
+      text-decoration: line-through ;
+}
